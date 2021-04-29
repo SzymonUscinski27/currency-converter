@@ -1,0 +1,24 @@
+.table {
+    margin: 0 auto;
+    max-width: 700px;
+    border-collapse: collapse;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.table__caption {
+    margin: 20px;
+}
+
+.table__tableCell {
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #eee;
+    text-align: center;
+}
+
+.table__tableHeader {
+    background-color: hsl(16, 100%, 50%);
+    color: white;
+    font-weight: normal;
+}

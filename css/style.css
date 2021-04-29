@@ -1,0 +1,23 @@
+html {
+    box-sizing: border-box;
+}
+
+*, ::before, ::after {
+    box-sizing: inherit;
+}
+
+.body {
+    background-color: #eee;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.body__paragraph {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    margin: 30px;
+    text-align: center;
+}
