@@ -10,6 +10,7 @@ html {
     background-image: url("../images/background.jpg");
     background-size: cover;
     background-position: bottom;
+    background-attachment: fixed;
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
