@@ -1,40 +1,43 @@
-let formElement = document.querySelector(".js-form");
-let amountElement = document.querySelector(".js-amount");
-let currencyElement = document.querySelector(".js-currency");
-let resultElement = document.querySelector(".js-result");
-let resetButton = document.querySelector(".js-resetButton");
+{
+    const formElement = document.querySelector(".js-form");
+    const amountElement = document.querySelector(".js-amount");
+    const currencyElement = document.querySelector(".js-currency");
+    const resultElement = document.querySelector(".js-result");
+    const resetButton = document.querySelector(".js-resetButton");
 
+    const calculateFinalCurrency = (amount, currency) => {
+        const rateEUR = 4.5546;
+        const rateUSD = 3.8014;
+        const rateGBP = 5.2376;
 
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
+        switch (currency) {
+            case "EUR":
+                return amount / rateEUR;
 
-    resetButton.addEventListener("click", () => {
-        location.reload();
-    });
+            case "USD":
+                return amount / rateUSD;
 
-    let rateEUR = 4.5546;
-    let rateUSD = 3.8014;
-    let rateGBP = 5.2376;
+            case "GBP":
+                return amount / rateGBP;
 
-
-    let amount = +amountElement.value;
-    let currency = currencyElement.value;
-
-    switch (currency) {
-        case "EUR":
-            result = amount / rateEUR;
-            break;
-
-        case "USD":
-            result = amount / rateUSD;
-            break;
-
-        case "GBP":
-            result = amount / rateGBP;
-            break;
-        default:
-            resultElement.innerHTML = "<strong>Przepraszamy, coś poszło nie tak, spróbuj ponownie później</strong>";
+            default:
+                resultElement.innerHTML = "<strong>Przepraszamy, coś poszło nie tak, spróbuj ponownie później</strong>";
+        }
     }
 
-    resultElement.innerHTML = `<strong>${amount} PLN = ${result.toFixed(2)} ${currency}</strong>`;
-});
+    formElement.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        resetButton.addEventListener("click", () => {
+            location.reload();
+        });
+
+        let amount = +amountElement.value;
+        let currency = currencyElement.value;
+
+        let result = calculateFinalCurrency(amount, currency);
+
+        resultElement.innerHTML = `<strong>${amount} PLN = ${result.toFixed(2)} ${currency}</strong>`;
+    });
+
+}
