@@ -19,6 +19,11 @@
         }
     }
 
+    const actualFinalCurrencyText = (amount, result, currency) => {
+        const resultElement = document.querySelector(".js-result");
+        resultElement.innerHTML = `<strong>${amount} PLN = ${result.toFixed(2)} ${currency}</strong>`;
+    }
+
     const onFormSubmit = (event) => {
         event.preventDefault();
 
@@ -30,14 +35,13 @@
 
         const amountElement = document.querySelector(".js-amount");
         const currencyElement = document.querySelector(".js-currency");
-        const resultElement = document.querySelector(".js-result");
 
         let amount = +amountElement.value;
         let currency = currencyElement.value;
 
         let result = calculateFinalCurrency(amount, currency);
 
-        resultElement.innerHTML = `<strong>${amount} PLN = ${result.toFixed(2)} ${currency}</strong>`;
+        actualFinalCurrencyText(amount, result, currency);
     };
 
     const init = () => {
