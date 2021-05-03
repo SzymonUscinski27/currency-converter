@@ -17,21 +17,19 @@
             default:
                 resultElement.innerHTML = "<strong>Przepraszamy, coś poszło nie tak, spróbuj ponownie później</strong>";
         }
-    }
+    };
 
     const actualFinalCurrencyText = (amount, result, currency) => {
         const resultElement = document.querySelector(".js-result");
         resultElement.innerHTML = `<strong>${amount} PLN = ${result.toFixed(2)} ${currency}</strong>`;
-    }
+    };
+
+    const onResetFormClick = () => {
+        location.reload();
+    };
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-
-        const resetButton = document.querySelector(".js-resetButton");
-
-        resetButton.addEventListener("click", () => {
-            location.reload();
-        });
 
         const amountElement = document.querySelector(".js-amount");
         const currencyElement = document.querySelector(".js-currency");
@@ -46,9 +44,12 @@
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
+        const resetButton = document.querySelector(".js-resetButton");
 
         formElement.addEventListener("submit", onFormSubmit);
-    }
+
+        resetButton.addEventListener("click", onResetFormClick);
+    };
 
     init();
 }
