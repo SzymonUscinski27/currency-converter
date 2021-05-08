@@ -1,5 +1,5 @@
 {
-    const calculateFinalCurrency = (amount, currency) => {
+    const calculateFinalResult = (amount, currency) => {
         const rateEUR = 4.5546;
         const rateUSD = 3.8014;
         const rateGBP = 5.2376;
@@ -19,7 +19,7 @@
         }
     };
 
-    const actualFinalCurrencyText = (amount, result, currency) => {
+    const calculateFinalResultText = (amount, result, currency) => {
         const resultElement = document.querySelector(".js-result");
         resultElement.innerHTML = `<strong>${amount} PLN = ${result.toFixed(2)} ${currency}</strong>`;
     };
@@ -37,9 +37,9 @@
         let amount = +amountElement.value;
         let currency = currencyElement.value;
 
-        let result = calculateFinalCurrency(amount, currency);
+        let result = calculateFinalResult(amount, currency);
 
-        actualFinalCurrencyText(amount, result, currency);
+        calculateFinalResultText(amount, result, currency);
     };
 
     const init = () => {
